@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://dwpv4aj3858k"]
+
+[ext_resource type="Script" path="res://Media/Scripts/game.gd" id="1_icalk"]
+[ext_resource type="Texture2D" uid="uid://lcrowcucwhei" path="res://Media/Images/Ground1.png" id="2_edxjo"]
+[ext_resource type="PackedScene" uid="uid://coaubq1q60gij" path="res://Media/Scenes/player.tscn" id="3_mgxq4"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_f3jjn"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lsrb5"]
+noise = SubResource("FastNoiseLite_f3jjn")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k2m6a"]
+texture = ExtResource("2_edxjo")
+texture_region_size = Vector2i(1, 1)
+0:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_4joah"]
+tile_size = Vector2i(1, 1)
+sources/0 = SubResource("TileSetAtlasSource_k2m6a")
+
+[node name="Game" type="Node2D"]
+position = Vector2(-40, 56)
+script = ExtResource("1_icalk")
+seed = 100
+noisetex = SubResource("NoiseTexture2D_lsrb5")
+
+[node name="Ground" type="TileMap" parent="."]
+scale = Vector2(16, 16)
+tile_set = SubResource("TileSet_4joah")
+rendering_quadrant_size = 1
+format = 2
+
+[node name="Player" parent="." instance=ExtResource("3_mgxq4")]
+position = Vector2(464, 248)
