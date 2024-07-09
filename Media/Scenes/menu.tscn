@@ -1,0 +1,172 @@
+[gd_scene load_steps=4 format=3 uid="uid://c16fns4icn886"]
+
+[ext_resource type="Script" path="res://Media/Scripts/menu.gd" id="1_d0p8l"]
+
+[sub_resource type="Gradient" id="Gradient_ois2b"]
+colors = PackedColorArray(0.212305, 0.212305, 0.212305, 1, 0.906493, 0.906493, 0.906493, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_14dce"]
+gradient = SubResource("Gradient_ois2b")
+fill_from = Vector2(0, 1)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d0p8l")
+
+[node name="Main_Menu" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 448.0
+offset_top = 168.0
+offset_right = 704.0
+offset_bottom = 472.0
+
+[node name="Play" type="Button" parent="Main_Menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -224.0
+offset_top = -23.973
+offset_right = 224.0
+offset_bottom = 136.027
+grow_horizontal = 2
+scale = Vector2(0.499581, 0.499581)
+pivot_offset = Vector2(223.812, 79.879)
+theme_override_font_sizes/font_size = 100
+text = "Play"
+
+[node name="Settings" type="Button" parent="Main_Menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -224.0
+offset_top = 72.027
+offset_right = 224.0
+offset_bottom = 232.027
+grow_horizontal = 2
+scale = Vector2(0.499581, 0.499581)
+pivot_offset = Vector2(223.812, 79.879)
+theme_override_font_sizes/font_size = 100
+text = "Settings"
+
+[node name="Quit" type="Button" parent="Main_Menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -224.0
+offset_top = 168.027
+offset_right = 224.0
+offset_bottom = 328.027
+grow_horizontal = 2
+scale = Vector2(0.499581, 0.499581)
+pivot_offset = Vector2(223.812, 79.879)
+theme_override_font_sizes/font_size = 100
+text = "Quit
+"
+
+[node name="Play_Menu" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 448.0
+offset_top = 168.0
+offset_right = 704.0
+offset_bottom = 488.0
+pivot_offset = Vector2(128, 160)
+
+[node name="Outer_Background" type="ColorRect" parent="Play_Menu"]
+layout_mode = 0
+offset_left = -456.0
+offset_top = -176.0
+offset_right = 712.0
+offset_bottom = 488.0
+color = Color(0, 0, 0, 0.321569)
+
+[node name="Inner_Background" type="ColorRect" parent="Play_Menu"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 304.0
+color = Color(0.25098, 0.25098, 0.25098, 1)
+
+[node name="First_Area" type="Control" parent="Play_Menu"]
+anchors_preset = 0
+offset_left = -456.0
+offset_top = -176.0
+offset_right = 712.0
+offset_bottom = 488.0
+
+[node name="Second_Area" type="Control" parent="Play_Menu"]
+anchors_preset = 0
+offset_right = 256.0
+offset_bottom = 304.0
+
+[node name="Continue" type="Button" parent="Play_Menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -224.0
+offset_top = -24.0
+offset_right = 224.0
+offset_bottom = 136.0
+grow_horizontal = 2
+scale = Vector2(0.499581, 0.499581)
+pivot_offset = Vector2(223.812, 79.879)
+theme_override_font_sizes/font_size = 100
+disabled = true
+text = "Continue"
+
+[node name="New" type="Button" parent="Play_Menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -224.0
+offset_top = 72.0
+offset_right = 224.0
+offset_bottom = 232.0
+grow_horizontal = 2
+scale = Vector2(0.499581, 0.499581)
+pivot_offset = Vector2(223.812, 79.879)
+theme_override_font_sizes/font_size = 100
+text = "New"
+
+[node name="Load" type="Button" parent="Play_Menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -224.0
+offset_top = 168.0
+offset_right = 224.0
+offset_bottom = 328.0
+grow_horizontal = 2
+scale = Vector2(0.499581, 0.499581)
+pivot_offset = Vector2(223.812, 79.879)
+theme_override_font_sizes/font_size = 100
+text = "Load"
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(576, 324)
+scale = Vector2(18.25, 10.375)
+texture = SubResource("GradientTexture2D_14dce")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="pressed" from="Main_Menu/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Main_Menu/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Main_Menu/Quit" to="." method="_on_quit_pressed"]
+[connection signal="mouse_entered" from="Play_Menu/First_Area" to="." method="_on_first_area_mouse_entered"]
+[connection signal="mouse_exited" from="Play_Menu/First_Area" to="." method="_on_first_area_mouse_exited"]
+[connection signal="mouse_entered" from="Play_Menu/Second_Area" to="." method="_on_second_area_mouse_entered"]
+[connection signal="mouse_exited" from="Play_Menu/Second_Area" to="." method="_on_second_area_mouse_exited"]
