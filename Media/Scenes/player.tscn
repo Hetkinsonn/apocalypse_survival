@@ -14,6 +14,7 @@ fill_to = Vector2(0.5, 0)
 metadata/_snap_enabled = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nnnjr"]
+radius = 32.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_m86hr")
@@ -25,3 +26,9 @@ texture = SubResource("GradientTexture2D_i2lg7")
 shape = SubResource("CircleShape2D_nnnjr")
 
 [node name="Camera" type="Camera2D" parent="."]
+
+[node name="Detector" type="RayCast2D" parent="."]
+position = Vector2(32, 16)
+target_position = Vector2(1, 1)
+collision_mask = 255
+collide_with_areas = true

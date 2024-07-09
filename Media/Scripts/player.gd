@@ -1,12 +1,16 @@
 extends CharacterBody2D
 
-var speed = 2000
+@onready var Game
+@onready var Detector = $Detector
+
+var speed = 500
+var is_on = true
 
 func _ready():
-	pass
+	Game = get_parent()
 
 func _process(delta):
-	pass
+	print(Detector.get_collider())
 
 func _physics_process(delta):
 	var direction = Input.get_vector("a","d","w","s")
