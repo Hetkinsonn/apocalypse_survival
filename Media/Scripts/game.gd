@@ -1,5 +1,7 @@
 extends Node2D
 
+var ChunkScene = preload("res://Media/Scenes/chunk.tscn")
+
 @export_range(100,999) var seed : int
 @export var noisetex : NoiseTexture2D
 
@@ -11,8 +13,12 @@ var chunks = [{"ID":1,"is_neighbours_created":false}]
 
 var noise
 
-func CreateChunk():
-	pass
+func GenerateWorld(height:int,width:int):
+	for x in width:
+		for y in height:
+			var CI = ChunkScene.instantiate()
+			CI.position = Vector2(x*32,y*32)
+			add_child(CI)
 
 func GenerateChunk(height:int,width:int,chunk:TileMap):
 	for x in width:
@@ -26,7 +32,7 @@ func GenerateChunk(height:int,width:int,chunk:TileMap):
 func _ready():
 	noise = noisetex.noise
 	noise.seed = seed
-
+	
 
 func _process(delta):
 	pass

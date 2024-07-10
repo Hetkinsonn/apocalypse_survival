@@ -1,4 +1,3 @@
-Version: alpha 09072024_2
+Version: alpha 10072024_1
 What's new?
-1. Added prototype of procedural world
-2. Added prototype of player
+1. Added static world

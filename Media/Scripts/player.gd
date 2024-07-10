@@ -10,7 +10,7 @@ func _ready():
 	Game = get_parent()
 
 func _process(delta):
-	print(Detector.get_collider())
+	pass
 
 func _physics_process(delta):
 	var direction = Input.get_vector("a","d","w","s")
